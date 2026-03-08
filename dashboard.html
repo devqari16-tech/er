@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YAS A TO Z CLEANING SERVICES - Admin Dashboard</title>
+  <link href="dashboard.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <!-- Login Screen -->
+  <div id="loginScreen" class="login-container">
+    <div class="login-box">
+      <div class="login-header">
+        <img src="logoweb.png" alt="YAS A TO Z Logo" class="login-logo">
+        <h2>Admin Dashboard</h2>
+        <p>Enter your credentials to continue</p>
+      </div>
+      <form id="loginForm" class="login-form">
+        <div class="form-group">
+          <label><i class="fas fa-user"></i> Username</label>
+          <input type="text" id="username" placeholder="Enter username" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-lock"></i> Password</label>
+          <input type="password" id="password" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="btn-login">
+          <span>Sign In</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard" class="dashboard" style="display: none;">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="logoweb.png" alt="Logo" class="sidebar-logo">
+        <h3>YAS A TO Z</h3>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-section="overview">
+          <i class="fas fa-th-large"></i>
+          <span>Overview</span>
+        </a>
+        <a href="#" class="nav-item" data-section="bookings">
+          <i class="fas fa-calendar-check"></i>
+          <span>Bookings</span>
+        </a>
+        <a href="#" class="nav-item" data-section="clients">
+          <i class="fas fa-users"></i>
+          <span>Clients</span>
+        </a>
+        <a href="#" class="nav-item" data-section="services">
+          <i class="fas fa-car"></i>
+          <span>Services</span>
+        </a>
+        <a href="#" class="nav-item" data-section="analytics">
+          <i class="fas fa-chart-line"></i>
+          <span>Analytics</span>
+        </a>
+        <a href="#" class="nav-item" data-section="schedule">
+          <i class="fas fa-clock"></i>
+          <span>Schedule</span>
+        </a>
+        <a href="#" class="nav-item" data-section="invoices">
+          <i class="fas fa-file-invoice-dollar"></i>
+          <span>Invoices</span>
+        </a>
+        <a href="#" class="nav-item" data-section="settings">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="btn-logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+          <h1 id="pageTitle">Dashboard Overview</h1>
+        </div>
+        <div class="header-right">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search...">
+          </div>
+          <button class="notification-btn">
+            <i class="fas fa-bell"></i>
+            <span class="badge">3</span>
+          </button>
+          <div class="user-profile">
+            <img src="https://ui-avatars.com/api/?name=Admin&background=D4AF37&color=0A1128" alt="Admin">
+            <span>Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Overview Section -->
+      <section id="overviewSection" class="content-section active">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon blue">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Today's Bookings</h3>
+              <p class="stat-number">12</p>
+              <span class="stat-change positive">+8% from yesterday</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Revenue (MTD)</h3>
+              <p class="stat-number">$24,580</p>
+              <span class="stat-change positive">+15% from last month</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon purple">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Total Clients</h3>
+              <p class="stat-number">1,247</p>
+              <span class="stat-change positive">+23 new this week</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon orange">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Avg Rating</h3>
+              <p class="stat-number">4.9</p>
+              <span class="stat-change positive">Excellent performance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="charts-grid">
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Revenue Overview</h3>
+              <select class="chart-filter">
+                <option>Last 7 Days</option>
+                <option>Last 30 Days</option>
+                <option>Last 3 Months</option>
+              </select>
+            </div>
+            <div class="chart-placeholder">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Popular Services</h3>
+            </div>
+            <div class="services-list">
+              <div class="service-item">
+                <span class="service-name">Full Cleaning Package</span>
+                <div class="service-bar">
+                  <div class="service-progress" style="width: 85%"></div>
+                </div>
+                <span class="service-count">340</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Exterior Detailing</span>
+                <div class="service-bar">
+                  <div class="service-progress" style="width: 70%"></div>
+                </div>
+                <span class="service-count">280</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Interior Detailing</span>
+                <div class="service-bar">
+                  <div class="service-progress" style="width: 60%"></div>
+                </div>
+                <span class="service-count">240</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Paint Protection</span>
+                <div class="service-bar">
+                  <div class="service-progress" style="width: 45%"></div>
+                </div>
+                <span class="service-count">180</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="recent-bookings">
+          <div class="section-header">
+            <h3>Recent Bookings</h3>
+            <a href="#" class="view-all">View All</a>
+          </div>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Client</th>
+                  <th>Service</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Amount</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="recentBookingsTable">
+                <tr>
+                  <td>#10234</td>
+                  <td>
+                    <div class="client-info">
+                      <img src="https://ui-avatars.com/api/?name=John+Doe&background=D4AF37&color=0A1128" alt="Client">
+                      <span>John Doe</span>
+                    </div>
+                  </td>
+                  <td>Full Detailing</td>
+                  <td>Jan 15, 2025</td>
+                  <td><span class="status-badge completed">Completed</span></td>
+                  <td>$299</td>
+                  <td>
+                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#10235</td>
+                  <td>
+                    <div class="client-info">
+                      <img src="https://ui-avatars.com/api/?name=Sarah+Smith&background=D4AF37&color=0A1128" alt="Client">
+                      <span>Sarah Smith</span>
+                    </div>
+                  </td>
+                  <td>Exterior Detail</td>
+                  <td>Jan 15, 2025</td>
+                  <td><span class="status-badge in-progress">In Progress</span></td>
+                  <td>$149</td>
+                  <td>
+                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#10236</td>
+                  <td>
+                    <div class="client-info">
+                      <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=D4AF37&color=0A1128" alt="Client">
+                      <span>Mike Johnson</span>
+                    </div>
+                  </td>
+                  <td>Ceramic Coating</td>
+                  <td>Jan 16, 2025</td>
+                  <td><span class="status-badge pending">Pending</span></td>
+                  <td>$599</td>
+                  <td>
+                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bookings Section -->
+      <section id="bookingsSection" class="content-section">
+        <div class="section-toolbar">
+          <div class="toolbar-left">
+            <button class="btn-primary" id="addBookingBtn">
+              <i class="fas fa-plus"></i>
+              New Booking
+            </button>
+          </div>
+          <div class="toolbar-right">
+            <select class="filter-select">
+              <option>All Status</option>
+              <option>Pending</option>
+              <option>In Progress</option>
+              <option>Completed</option>
+              <option>Cancelled</option>
+            </select>
+            <input type="date" class="date-input">
+          </div>
+        </div>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox"></th>
+                <th>ID</th>
+                <th>Client</th>
+                <th>Service</th>
+                <th>Vehicle</th>
+                <th>Date & Time</th>
+                <th>Status</th>
+                <th>Amount</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="bookingsTable">
+              <!-- Dynamic content -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Clients Section -->
+      <section id="clientsSection" class="content-section">
+        <div class="section-toolbar">
+          <div class="toolbar-left">
+            <button class="btn-primary" id="addClientBtn">
+              <i class="fas fa-plus"></i>
+              Add Client
+            </button>
+          </div>
+          <div class="toolbar-right">
+            <input type="text" placeholder="Search clients..." class="search-input">
+            <select class="filter-select">
+              <option>All Clients</option>
+              <option>VIP</option>
+              <option>Regular</option>
+              <option>New</option>
+            </select>
+          </div>
+        </div>
+        <div class="clients-grid">
+          <div class="client-card">
+            <div class="client-avatar">
+              <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=D4AF37&color=0A1128" alt="Client">
+              <span class="client-badge vip">VIP</span>
+            </div>
+            <h4>Michael Chen</h4>
+            <p>michael@email.com</p>
+            <p class="client-phone">(647) 555-0123</p>
+            <div class="client-stats">
+              <div class="client-stat">
+                <span>Total Visits</span>
+                <strong>24</strong>
+              </div>
+              <div class="client-stat">
+                <span>Total Spent</span>
+                <strong>$3,580</strong>
+              </div>
+            </div>
+            <div class="client-actions">
+              <button class="btn-outline"><i class="fas fa-eye"></i> View</button>
+              <button class="btn-outline"><i class="fas fa-edit"></i> Edit</button>
+            </div>
+          </div>
+          <!-- More client cards dynamically generated -->
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="servicesSection" class="content-section">
+        <div class="section-toolbar">
+          <div class="toolbar-left">
+            <button class="btn-primary" id="addServiceBtn">
+              <i class="fas fa-plus"></i>
+              Add Service
+            </button>
+          </div>
+        </div>
+        <div class="services-grid-manage">
+          <div class="service-manage-card">
+            <div class="service-manage-header">
+              <h4>Exterior Detailing</h4>
+              <div class="service-actions">
+                <button class="action-btn"><i class="fas fa-edit"></i></button>
+                <button class="action-btn"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+            <p class="service-description">Complete exterior transformation with hand wash, clay bar treatment, and premium protection.</p>
+            <div class="service-details">
+              <div class="detail-item">
+                <span>Price:</span>
+                <strong>$149</strong>
+              </div>
+              <div class="detail-item">
+                <span>Duration:</span>
+                <strong>2-3 hours</strong>
+              </div>
+              <div class="detail-item">
+                <span>Bookings:</span>
+                <strong>280 this month</strong>
+              </div>
+            </div>
+            <button class="btn-toggle active">Active</button>
+          </div>
+          <!-- More service cards -->
+        </div>
+      </section>
+
+      <!-- Analytics Section -->
+      <section id="analyticsSection" class="content-section">
+        <div class="analytics-grid">
+          <div class="analytics-card full-width">
+            <h3>Revenue Analytics</h3>
+            <div class="chart-placeholder large">
+              <canvas id="analyticsChart"></canvas>
+            </div>
+          </div>
+          <div class="analytics-card">
+            <h3>Customer Growth</h3>
+            <div class="growth-stats">
+              <div class="growth-item">
+                <span>New Customers</span>
+                <h2>+127</h2>
+                <span class="growth-change positive">+18% vs last month</span>
+              </div>
+            </div>
+          </div>
+          <div class="analytics-card">
+            <h3>Top Performing Staff</h3>
+            <div class="staff-list">
+              <div class="staff-item">
+                <img src="https://ui-avatars.com/api/?name=John+Smith&background=D4AF37&color=0A1128" alt="Staff">
+                <div class="staff-info">
+                  <h5>John Smith</h5>
+                  <p>145 services completed</p>
+                </div>
+                <span class="staff-rating">4.9 ⭐</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Schedule Section -->
+      <section id="scheduleSection" class="content-section">
+        <div class="calendar-container">
+          <div class="calendar-header">
+            <button class="calendar-nav"><i class="fas fa-chevron-left"></i></button>
+            <h3>January 2025</h3>
+            <button class="calendar-nav"><i class="fas fa-chevron-right"></i></button>
+          </div>
+          <div class="calendar-grid">
+            <div class="calendar-day header">Sun</div>
+            <div class="calendar-day header">Mon</div>
+            <div class="calendar-day header">Tue</div>
+            <div class="calendar-day header">Wed</div>
+            <div class="calendar-day header">Thu</div>
+            <div class="calendar-day header">Fri</div>
+            <div class="calendar-day header">Sat</div>
+            <!-- Calendar days will be generated dynamically -->
+          </div>
+        </div>
+        <div class="schedule-sidebar">
+          <h4>Today's Schedule</h4>
+          <div class="schedule-list">
+            <div class="schedule-item">
+              <div class="schedule-time">09:00 AM</div>
+              <div class="schedule-details">
+                <h5>Full Detailing - John Doe</h5>
+                <p>BMW M3 • Expected 3 hours</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Invoice Section -->
+      <section id="invoicesSection" class="content-section">
+        <div class="section-toolbar">
+          <div class="toolbar-left">
+            <button class="btn-primary" id="newInvoiceBtn">
+              <i class="fas fa-plus"></i>
+              New Invoice
+            </button>
+          </div>
+          <div class="toolbar-right">
+            <select class="filter-select" id="invoiceStatusFilter">
+              <option>All Invoices</option>
+              <option>Paid</option>
+              <option>Unpaid</option>
+              <option>Partial</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="invoiceFormContainer" style="display: none;">
+          <link href="invoice.css" rel="stylesheet">
+          <div class="invoice-generator">
+            <div class="invoice-header-section">
+              <h2>Create New Invoice</h2>
+              <p style="color: var(--gray);">Fill in the details below to generate a professional invoice</p>
+            </div>
+
+            <div class="invoice-form-container">
+              <form id="invoiceForm">
+                <!-- Customer Information -->
+                <div class="invoice-section">
+                  <h3><i class="fas fa-user"></i> Customer Information</h3>
+                  <div class="form-grid">
+                    <div class="form-group">
+                      <label class="required">Customer Name</label>
+                      <input type="text" id="customerName" required>
+                    </div>
+                    <div class="form-group">
+                      <label class="required">Customer Email</label>
+                      <input type="email" id="customerEmail" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Phone Number</label>
+                      <input type="tel" id="customerPhone">
+                    </div>
+                    <div class="form-group">
+                      <label>Address</label>
+                      <input type="text" id="customerAddress">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Vehicle Information -->
+                <div class="invoice-section">
+                  <h3><i class="fas fa-car"></i> Vehicle Information</h3>
+                  <div class="form-grid">
+                    <div class="form-group">
+                      <label class="required">Year</label>
+                      <input type="number" id="vehicleYear" min="1900" max="2030" required>
+                    </div>
+                    <div class="form-group">
+                      <label class="required">Make</label>
+                      <input type="text" id="vehicleMake" required>
+                    </div>
+                    <div class="form-group">
+                      <label class="required">Model</label>
+                      <input type="text" id="vehicleModel" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Color</label>
+                      <input type="text" id="vehicleColor">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Services & Products -->
+                <div class="invoice-section">
+                  <h3><i class="fas fa-list"></i> Services & Products</h3>
+                  <div id="serviceLines">
+                    <!-- Service lines will be added here -->
+                  </div>
+                  <button type="button" class="btn-add-service" id="addServiceBtn">
+                    <i class="fas fa-plus"></i> Add Service Line
+                  </button>
+                </div>
+
+                <!-- Pricing & Payment -->
+                <div class="invoice-section">
+                  <h3><i class="fas fa-dollar-sign"></i> Pricing & Payment</h3>
+                  <div class="pricing-grid">
+                    <div class="form-group">
+                      <label>Tax Rate (%)</label>
+                      <input type="number" id="taxRate" value="13" step="0.01" min="0">
+                    </div>
+                    <div class="form-group">
+                      <label>Deposit Paid ($)</label>
+                      <input type="number" id="depositPaid" value="0" step="0.01" min="0">
+                    </div>
+                  </div>
+                  <div class="pricing-summary">
+                    <div class="pricing-row">
+                      <span>Subtotal:</span>
+                      <strong id="displaySubtotal">$0.00</strong>
+                    </div>
+                    <div class="pricing-row">
+                      <span>Tax:</span>
+                      <strong id="displayTax">$0.00</strong>
+                    </div>
+                    <div class="pricing-row total">
+                      <span>Total:</span>
+                      <strong id="displayTotal">$0.00</strong>
+                    </div>
+                    <div class="pricing-row">
+                      <span>Deposit:</span>
+                      <strong id="displayDeposit">$0.00</strong>
+                    </div>
+                    <div class="pricing-row total">
+                      <span>Balance Due:</span>
+                      <strong id="displayBalance">$0.00</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="invoice-section">
+                  <h3><i class="fas fa-info-circle"></i> Additional Information</h3>
+                  <div class="form-grid">
+                    <div class="form-group">
+                      <label>Warranty Information</label>
+                      <textarea id="warrantyInfo">Lifetime warranty on window tinting against bubbling, peeling, and discoloration. Free rock chip repair included.</textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>Special Instructions</label>
+                      <textarea id="specialInstructions">You Must Remove Tape within 2 Days. Do Not Wash Vehicle for at least 2 Days to let glue dry.</textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Internal Notes (not shown on invoice)</label>
+                    <textarea id="internalNotes" placeholder="Staff notes, special considerations..."></textarea>
+                  </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="invoice-actions">
+                  <button type="button" class="btn-preview" id="previewInvoiceBtn">
+                    <i class="fas fa-eye"></i> Preview Invoice
+                  </button>
+                  <button type="submit" class="btn-generate">
+                    <i class="fas fa-file-invoice"></i> Generate & Save Invoice
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="invoices-table-container" id="invoicesList">
+          <table class="invoices-table">
+            <thead>
+              <tr>
+                <th>Invoice #</th>
+                <th>Customer</th>
+                <th>Vehicle</th>
+                <th>Date</th>
+                <th>Total</th>
+                <th>Balance</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="invoicesTableBody">
+              <!-- Invoices will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Settings Section -->
+      <section id="settingsSection" class="content-section">
+        <div class="settings-grid">
+          <div class="settings-card">
+            <h3>Business Information</h3>
+            <form class="settings-form">
+              <div class="form-group">
+                <label>Business Name</label>
+                <input type="text" value="YAS A TO Z CLEANING SERVICE">
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" value="(647) 778-8430">
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" value="info@yasatozcleaning.com">
+              </div>
+              <div class="form-group">
+                <label>Address</label>
+                <textarea>127 Manville Road, Unit 1, Scarborough, ON</textarea>
+              </div>
+              <button type="submit" class="btn-primary">Save Changes</button>
+            </form>
+          </div>
+          <div class="settings-card">
+            <h3>Business Hours</h3>
+            <div class="hours-list">
+              <div class="hour-item">
+                <span>Monday - Saturday</span>
+                <input type="text" value="8:00 AM - 6:00 PM">
+              </div>
+              <div class="hour-item">
+                <span>Sunday</span>
+                <input type="text" value="Closed">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    // Initialize EmailJS with your public key
+    (function(){
+      emailjs.init({
+        publicKey: "HM61dF31CNgav6AFw"
+      });
+    })();
+  </script>
+
+  <script src="dashboard.js"></script>
+  <script src="invoice.js"></script>
+</body>
+</html>

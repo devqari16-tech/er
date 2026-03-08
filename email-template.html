@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice Email Template</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f5f5f5;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f5f5f5; padding: 20px;">
+    <tr>
+      <td align="center">
+        <table width="700" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+          
+          <!-- Header with Border -->
+          <tr>
+            <td style="padding: 20px; text-align: center; border: 3px solid #000000;">
+              <h1 style="margin: 0 0 5px 0; font-size: 24px; font-weight: 900; text-transform: uppercase; color: #000000;">YAS A TO Z CLEANING SERVICES</h1>
+              <p style="margin: 5px 0; font-size: 13px; color: #333333;">Professional Window Tinting & Auto Services</p>
+              <p style="margin: 10px 0 5px 0; font-size: 12px; color: #000000;">127 Manville Rd, Unit 1, Scarborough, ON</p>
+              <p style="margin: 5px 0; font-size: 12px; color: #000000;">Email: info@yasatozcleaning.com | Phone: (647) 778-8430 / (437) 545-7974</p>
+              <p style="margin: 5px 0; font-size: 12px; color: #000000;">Business Number: 70105 1361</p>
+            </td>
+          </tr>
+
+          <!-- Customer Information Section with Border -->
+          <tr>
+            <td style="padding: 0;">
+              <table width="100%" cellpadding="15" cellspacing="0" border="0" style="border-left: 3px solid #000000; border-right: 3px solid #000000; border-bottom: 3px solid #000000;">
+                <tr>
+                  <td width="50%" style="vertical-align: top; padding: 15px; border-right: 1px solid #ddd;">
+                    <table width="100%" cellpadding="5" cellspacing="0" border="0">
+                      <tr>
+                        <td style="font-size: 13px; font-weight: 700; color: #000000; padding: 5px 0; border-bottom: 1px solid #ddd;">Customer:</td>
+                        <td style="font-size: 13px; color: #333333; padding: 5px 0; border-bottom: 1px solid #ddd;">{{customer_name}}</td>
+                      </tr>
+                      <tr>
+                        <td style="font-size: 13px; font-weight: 700; color: #000000; padding: 5px 0; border-bottom: 1px solid #ddd;">Phone:</td>
+                        <td style="font-size: 13px; color: #333333; padding: 5px 0; border-bottom: 1px solid #ddd;">{{customer_phone}}</td>
+                      </tr>
+                      <tr>
+                        <td style="font-size: 13px; font-weight: 700; color: #000000; padding: 5px 0;">Address:</td>
+                        <td style="font-size: 13px; color: #333333; padding: 5px 0;">{{customer_address}}</td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="50%" style="vertical-align: top; padding: 15px;">
+                    <table width="100%" cellpadding="5" cellspacing="0" border="0">
+                      <tr>
+                        <td style="font-size: 13px; font-weight: 700; color: #000000; padding: 5px 0; border-bottom: 1px solid #ddd;">Date:</td>
+                        <td style="font-size: 13px; color: #333333; padding: 5px 0; border-bottom: 1px solid #ddd;">{{invoice_date}}</td>
+                      </tr>
+                      <tr>
+                        <td style="font-size: 13px; font-weight: 700; color: #000000; padding: 5px 0;">Property:</td>
+                        <td style="font-size: 13px; color: #333333; padding: 5px 0;">{{property_info}}</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Services Table with Border -->
+          <tr>
+            <td style="padding: 0;">
+              <table width="100%" cellpadding="10" cellspacing="0" border="0" style="border-left: 3px solid #000000; border-right: 3px solid #000000; border-bottom: 3px solid #000000; border-collapse: collapse;">
+                <thead>
+                  <tr style="background-color: #ffffff;">
+                    <th style="border: 2px solid #000000; font-size: 13px; text-align: center; width: 60px; padding: 10px; font-weight: 700;">Qty</th>
+                    <th style="border: 2px solid #000000; font-size: 13px; text-align: left; padding: 10px; font-weight: 700;">Description</th>
+                    <th style="border: 2px solid #000000; font-size: 13px; text-align: left; width: 120px; padding: 10px; font-weight: 700;">Model</th>
+                    <th style="border: 2px solid #000000; font-size: 13px; text-align: left; width: 100px; padding: 10px; font-weight: 700;">Serial #</th>
+                    <th style="border: 2px solid #000000; font-size: 13px; text-align: right; width: 100px; padding: 10px; font-weight: 700;">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{services_rows}}
+                </tbody>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Notes and Totals Section -->
+          <tr>
+            <td style="padding: 0;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="55%" style="padding: 15px; border-left: 3px solid #000000; border-right: 2px solid #000000; border-bottom: 3px solid #000000; vertical-align: top;">
+                    <h4 style="margin: 0 0 10px 0; font-size: 13px; font-weight: 700; color: #000000;">Notes:</h4>
+                    <p style="margin: 0; font-size: 11px; line-height: 1.5; color: #333333;">{{special_instructions}}</p>
+                    <h4 style="margin: 15px 0 10px 0; font-size: 13px; font-weight: 700; color: #000000;">Warranty:</h4>
+                    <p style="margin: 0; font-size: 11px; line-height: 1.5; color: #333333;">{{warranty_info}}</p>
+                  </td>
+                  <td width="45%" style="border-right: 3px solid #000000; border-bottom: 3px solid #000000; vertical-align: top; padding: 0;">
+                    <table width="100%" cellpadding="10" cellspacing="0" border="0">
+                      <tr>
+                        <td style="font-size: 13px; border-bottom: 2px solid #000000; padding: 10px 15px; color: #000000;">Sub Total</td>
+                        <td style="font-size: 13px; text-align: right; border-bottom: 2px solid #000000; padding: 10px 15px;"><strong>{{subtotal}}</strong></td>
+                      </tr>
+                      <tr>
+                        <td style="font-size: 13px; border-bottom: 2px solid #000000; padding: 10px 15px; color: #000000;">Tax</td>
+                        <td style="font-size: 13px; text-align: right; border-bottom: 2px solid #000000; padding: 10px 15px;"><strong>{{tax_amount}}</strong></td>
+                      </tr>
+                      <tr style="background-color: #f5f5f5;">
+                        <td style="font-size: 15px; font-weight: 700; border-bottom: 2px solid #000000; padding: 10px 15px; color: #000000;">Total</td>
+                        <td style="font-size: 15px; text-align: right; border-bottom: 2px solid #000000; padding: 10px 15px;"><strong>{{total_amount}}</strong></td>
+                      </tr>
+                      <tr>
+                        <td style="font-size: 13px; border-bottom: 2px solid #000000; padding: 10px 15px; color: #000000;">Deposit</td>
+                        <td style="font-size: 13px; text-align: right; border-bottom: 2px solid #000000; padding: 10px 15px;"><strong>{{deposit_amount}}</strong></td>
+                      </tr>
+                      <tr style="background-color: #f5f5f5;">
+                        <td style="font-size: 15px; font-weight: 700; padding: 10px 15px; color: #000000;">Balance</td>
+                        <td style="font-size: 15px; text-align: right; padding: 10px 15px;"><strong>{{balance_due}}</strong></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Warranty Notice -->
+          <tr>
+            <td style="padding: 15px; text-align: center; border-left: 3px solid #000000; border-right: 3px solid #000000; border-bottom: 3px solid #000000; font-weight: 700; font-size: 13px; color: #000000;">
+              Warranty: Free Rock Chip Repair
+            </td>
+          </tr>
+
+          <!-- Signature -->
+          <tr>
+            <td style="padding: 15px; border-left: 3px solid #000000; border-right: 3px solid #000000; border-bottom: 3px solid #000000;">
+              <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 700; color: #000000;">Customer's Signature X ___________________________________</p>
+            </td>
+          </tr>
+
+        </table>
+
+        <!-- Footer Message -->
+        <table width="700" cellpadding="20" cellspacing="0" border="0">
+          <tr>
+            <td style="text-align: center; color: #666666; font-size: 12px;">
+              <p style="margin: 5px 0;">Thank you for choosing YAS A TO Z CLEANING SERVICES!</p>
+              <p style="margin: 5px 0;">For any questions, please contact us at (647) 778-8430 or info@yasatozcleaning.com</p>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
