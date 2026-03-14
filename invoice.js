@@ -317,7 +317,7 @@ function previewInvoice() {
         <div class="invoice-print">
           <div class="invoice-print-header">
             <h1>YAS A TO Z CLEANING SERVICES</h1>
-            <p class="tagline">Professional Window Tinting & Auto Services</p>
+
             <div class="business-info">
               127 Manville Rd, Unit 1, Scarborough, ON<br>
               Email: info@yasatozcleaning.com | Phone: (647) 778-8430 / (437) 545-7974<br>
@@ -496,7 +496,7 @@ function printInvoice(id) {
         <div class="invoice-print">
           <div class="invoice-print-header">
             <h1>YAS A TO Z CLEANING SERVICES</h1>
-            <p class="tagline">Professional Window Tinting & Auto Services</p>
+
             <div class="business-info">
               127 Manville Rd, Unit 1, Scarborough, ON<br>
               Email: info@yasatozcleaning.com | Phone: (647) 778-8430 / (437) 545-7974<br>
@@ -762,7 +762,6 @@ function sendInvoiceEmailHTML(id) {
           <tr>
             <td style="padding: 20px; text-align: center; border-bottom: 2px solid #000000;">
               <h1 style="margin: 0; font-size: 20px; font-weight: bold; text-transform: uppercase;">YAS A TO Z CLEANING SERVICES</h1>
-              <p style="margin: 5px 0; font-size: 12px;">Professional Window Tinting & Auto Services</p>
               <p style="margin: 5px 0; font-size: 11px;">127 Manville Rd, Unit 1, Scarborough, ON</p>
               <p style="margin: 5px 0; font-size: 11px;">Email: info@yasatozcleaning.com | Phone: (647) 778-8430 / (437) 545-7974</p>
               <p style="margin: 5px 0; font-size: 11px;">Business Number: 70105 1361</p>
@@ -959,7 +958,7 @@ function generateInvoiceHTML(invoice) {
         <div class="invoice-print">
           <div class="invoice-print-header">
             <h1>YAS A TO Z CLEANING SERVICES</h1>
-            <p class="tagline">Professional Window Tinting & Auto Services</p>
+
             <div class="business-info">
               127 Manville Rd, Unit 1, Scarborough, ON<br>
               Email: info@yasatozcleaning.com | Phone: (647) 778-8430 / (437) 545-7974<br>
