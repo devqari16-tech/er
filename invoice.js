@@ -73,7 +73,7 @@ function createServiceLine() {
 // Initialize invoice form
 function initializeInvoiceForm() {
   const serviceLines = document.getElementById('serviceLines');
-  const addServiceBtn = document.getElementById('addServiceBtn');
+  const addServiceBtn = document.getElementById('addInvoiceServiceBtn');
 
   // Add first service line
   if (serviceLines && serviceLines.children.length === 0) {
@@ -342,6 +342,10 @@ function previewInvoice() {
             </div>
             <div>
               <div class="info-row">
+                <span class="info-label">Invoice #:</span>
+                <span class="info-value" style="font-weight:700;">${currentInvoiceId}</span>
+              </div>
+              <div class="info-row">
                 <span class="info-label">Date:</span>
                 <span class="info-value">${new Date().toISOString().split('T')[0]}</span>
               </div>
@@ -367,8 +371,6 @@ function previewInvoice() {
             <div class="notes-section">
               <h4>Notes:</h4>
               <p>${specialInstructions}</p>
-              <h4 style="margin-top: 15px;">Warranty:</h4>
-              <p>${warrantyInfo}</p>
             </div>
             <div class="totals-section">
               <div class="total-row">
@@ -392,10 +394,6 @@ function previewInvoice() {
                 <strong>$${balance.toFixed(2)}</strong>
               </div>
             </div>
-          </div>
-
-          <div class="warranty-section">
-            Warranty: Free Rock Chip Repair
           </div>
 
           <div class="signature-section">
@@ -521,6 +519,10 @@ function printInvoice(id) {
             </div>
             <div>
               <div class="info-row">
+                <span class="info-label">Invoice #:</span>
+                <span class="info-value" style="font-weight:700;">${invoice.id}</span>
+              </div>
+              <div class="info-row">
                 <span class="info-label">Date:</span>
                 <span class="info-value">${new Date(invoice.date).toISOString().split('T')[0]}</span>
               </div>
@@ -546,8 +548,6 @@ function printInvoice(id) {
             <div class="notes-section">
               <h4>Notes:</h4>
               <p>${invoice.specialInstructions}</p>
-              <h4 style="margin-top: 15px;">Warranty:</h4>
-              <p>${invoice.warrantyInfo}</p>
             </div>
             <div class="totals-section">
               <div class="total-row">
@@ -571,10 +571,6 @@ function printInvoice(id) {
                 <strong>$${invoice.balance.toFixed(2)}</strong>
               </div>
             </div>
-          </div>
-
-          <div class="warranty-section">
-            Warranty: Free Rock Chip Repair
           </div>
 
           <div class="signature-section">
@@ -772,6 +768,10 @@ function sendInvoiceEmailHTML(id) {
             <td style="padding: 15px; border-bottom: 2px solid #000000;">
               <table width="100%" cellpadding="5" cellspacing="0" border="0">
                 <tr>
+                  <td style="font-size: 13px;"><strong>Invoice #:</strong></td>
+                  <td style="font-size: 13px; font-weight: bold;">${invoice.id}</td>
+                </tr>
+                <tr>
                   <td style="font-size: 13px;"><strong>Customer:</strong></td>
                   <td style="font-size: 13px;">${invoice.customer.name}</td>
                 </tr>
@@ -817,8 +817,6 @@ function sendInvoiceEmailHTML(id) {
                   <td width="60%" style="padding: 15px; border-right: 1px solid #000000; border-top: 2px solid #000000; vertical-align: top;">
                     <h4 style="margin: 0 0 10px 0; font-size: 13px;">Notes:</h4>
                     <p style="margin: 0; font-size: 11px; line-height: 1.5;">${invoice.specialInstructions || 'No special instructions'}</p>
-                    <h4 style="margin: 15px 0 10px 0; font-size: 13px;">Warranty:</h4>
-                    <p style="margin: 0; font-size: 11px; line-height: 1.5;">${invoice.warrantyInfo || 'Standard warranty applies'}</p>
                   </td>
                   <td width="40%" style="border-top: 2px solid #000000; vertical-align: top;">
                     <table width="100%" cellpadding="8" cellspacing="0" border="0">
@@ -846,12 +844,6 @@ function sendInvoiceEmailHTML(id) {
                   </td>
                 </tr>
               </table>
-            </td>
-          </tr>
-
-          <tr>
-            <td style="padding: 15px; text-align: center; border-top: 2px solid #000000; font-weight: bold; font-size: 13px;">
-              Warranty: Free Rock Chip Repair
             </td>
           </tr>
 
@@ -1008,8 +1000,6 @@ function generateInvoiceHTML(invoice) {
             <div class="notes-section">
               <h4>Notes:</h4>
               <p>${invoice.specialInstructions}</p>
-              <h4 style="margin-top: 15px;">Warranty:</h4>
-              <p>${invoice.warrantyInfo}</p>
             </div>
             <div class="totals-section">
               <div class="total-row">
@@ -1033,10 +1023,6 @@ function generateInvoiceHTML(invoice) {
                 <strong>$${invoice.balance.toFixed(2)}</strong>
               </div>
             </div>
-          </div>
-
-          <div class="warranty-section">
-            Warranty: Free Rock Chip Repair
           </div>
 
           <div class="signature-section">
